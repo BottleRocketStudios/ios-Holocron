@@ -8,125 +8,121 @@
 import UIKit
 import Holocron
 
+extension Key {
+    static let fileTest: Key = "fileTestKey"
+    static let keychainTest: Key = "testKeychainKey"
+    static let userDefaultsTest: Key = "testUserDefaultsKey"
+}
+
 class ViewController: UIViewController {
-    
-    lazy var userDefaultsPersistence: UserDefaultsPersistence = UserDefaultsPersistence()
-    let userDefaultsStore = UserDefaultsStore(key: "testUserDefaults")
-    
-    lazy var keychainPersistence: KeychainPersistence = KeychainPersistence(keychainServiceName: "com.holocron.test")
-    let keyChainStore = KeychainStore(key: "testKeychainPersistence")
-    
-    let cacheDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
-    lazy var filePersistance: FilePersistence = FilePersistence(directory: cacheDirectory)
-    let fileStore = FileStore(fileName: "testFilePersistance")
-    
+    let defaultsProvider: StorageProvider = UserDefaults.standard
+    let keychainProvider: StorageProvider = .Keychain(service: "com.holocron.example")
+    let fileProvider = FileSystemStorageProvider(baseURL: FileManager.default.temporaryDirectory)
+
     @IBOutlet private var userDefaultsTextField: UITextField!
     @IBOutlet private var keychainTextField: UITextField!
     @IBOutlet private var fileTextField: UITextField!
-    
+
+    struct Stored: Codable {
+        let title: String
+    }
 
     // MARK: User Defaults
-    @IBAction func userDefaultsReadTapped(_ sender: Any) {
-        userDefaultsPersistence.retrieve(object: userDefaultsStore) { [weak self] (result: Result<String, StorageError>) in
-            switch result {
-            case .success(let object):
-                self?.presentAlert(title: "User Defaults Read", message: object)
-            case .failure(let error):
-                self?.presentAlert(title: "User Defaults Read Error", message: error.localizedDescription)
+    @IBAction func userDefaultsReadTapped() {
+        do {
+            if let stored: Stored = try defaultsProvider.value(for: .userDefaultsTest) {
+                presentAlert(title: "User Defaults Read", message: stored.title)
+            } else {
+                presentAlert(title: "User Defaults Read", message: "No value.")
             }
+        } catch {
+            presentAlert(title: "User Defaults Read Error", message: error.localizedDescription)
         }
     }
-    
-    @IBAction func userDefaultsWriteTapped(_ sender: Any) {
+
+    @IBAction func userDefaultsWriteTapped() {
         guard let text = userDefaultsTextField.text, !text.isEmpty else { return }
-        userDefaultsPersistence.write(object: text, for: userDefaultsStore) { [weak self] (result) in
-            switch result {
-            case .success(let object):
-                self?.presentAlert(title: "User Defaults Write", message: "Did write \(object)")
-            case .failure(let error):
-                self?.presentAlert(title: "User Defaults Write Error", message: error.localizedDescription)
-            }
+        do {
+            let stored = Stored(title: text)
+            try defaultsProvider.write(stored, for: .userDefaultsTest)
+            presentAlert(title: "User Defaults Write", message: "Did write \(stored.title).")
+        } catch {
+            presentAlert(title: "User Defaults Write Error", message: error.localizedDescription)
         }
     }
-    
-    @IBAction func userDefaultsDeleteTapped(_ sender: Any) {
-        userDefaultsPersistence.removeObject(for: userDefaultsStore) { [weak self] (result: Result<Bool, StorageError>) in
-            switch result {
-            case .success(_):
-                self?.presentAlert(title: "User Defaults Delete", message: "Delete successful")
-            case .failure(let error):
-                self?.presentAlert(title: "User Defaults Delete Error", message: error.localizedDescription)
-            }
+
+    @IBAction func userDefaultsDeleteTapped() {
+        do {
+            try defaultsProvider.deleteValue(for: .userDefaultsTest)
+            presentAlert(title: "User Defaults Delete", message: "Delete successful.")
+        } catch {
+            presentAlert(title: "User Defaults Delete Error", message: error.localizedDescription)
         }
     }
-    
+
     // MARK: Keychain
-    @IBAction func keychainReadTapped(_ sender: Any) {
-        keychainPersistence.retrieve(object: keyChainStore) { [weak self] (result: Result<String, StorageError>) in
-            switch result {
-            case .success(let object):
-                self?.presentAlert(title: "Keychain Read", message: object)
-            case .failure(let error):
-                self?.presentAlert(title: "Keychain Read Error", message: error.localizedDescription)
+    @IBAction func keychainReadTapped() {
+        do {
+            if let stored: Stored = try keychainProvider.value(for: .keychainTest) {
+                presentAlert(title: "Keychain Read", message: stored.title)
+            } else {
+                presentAlert(title: "Keychain Read", message: "No value.")
             }
+        } catch {
+            presentAlert(title: "Keychain Read Error", message: error.localizedDescription)
         }
     }
-    
-    @IBAction func keychainWriteTapped(_ sender: Any) {
+
+    @IBAction func keychainWriteTapped() {
         guard let text = keychainTextField.text, !text.isEmpty else { return }
-        keychainPersistence.write(object: text, for: keyChainStore) { [weak self] (result) in
-            switch result {
-            case .success(let object):
-                self?.presentAlert(title: "Keychain Write", message: "Did write \(object)")
-            case .failure(let error):
-                self?.presentAlert(title: "Keychain Write Error", message: error.localizedDescription)
-            }
+        do {
+            let stored = Stored(title: text)
+            try keychainProvider.write(stored, for: .keychainTest)
+            presentAlert(title: "Keychain Write", message: "Did write \(stored.title).")
+        } catch {
+            presentAlert(title: "Keychain Write Error", message: error.localizedDescription)
         }
     }
-    
-    @IBAction func keychainDeleteTapped(_ sender: Any) {
-        keychainPersistence.removeObject(for: keyChainStore) { [weak self] (result: Result<Bool, StorageError>) in
-            switch result {
-            case .success(_):
-                self?.presentAlert(title: "Keychain Delete", message: "Delete successful")
-            case .failure(let error):
-                self?.presentAlert(title: "Keychain Delete Error", message: error.localizedDescription)
-            }
+
+    @IBAction func keychainDeleteTapped() {
+        do {
+            try keychainProvider.deleteValue(for: .keychainTest)
+            presentAlert(title: "Keychain Delete", message: "Delete successful.")
+        } catch {
+            presentAlert(title: "Keychain Delete Error", message: error.localizedDescription)
         }
     }
-    
+
     // MARK: File
-    @IBAction func fileReadTapped(_ sender: Any) {
-        filePersistance.retrieve(object: fileStore) { [weak self] (result: Result<String, StorageError>) in
-            switch result {
-            case .success(let object):
-                self?.presentAlert(title: "File Read", message: object)
-            case .failure(let error):
-                self?.presentAlert(title: "File Read Error", message: error.localizedDescription)
+    @IBAction func fileReadTapped() {
+        do {
+            if let stored: Stored = try fileProvider.value(for: .fileTest) {
+                presentAlert(title: "File Read", message: stored.title)
+            } else {
+                presentAlert(title: "File Read", message: "No value.")
             }
+        } catch {
+            presentAlert(title: "File Read Error", message: error.localizedDescription)
         }
     }
-    
-    @IBAction func fileWriteTapped(_ sender: Any) {
+
+    @IBAction func fileWriteTapped() {
         guard let text = fileTextField.text, !text.isEmpty else { return }
-        filePersistance.write(object: text, for: fileStore) { [weak self] (result) in
-            switch result {
-            case .success(let object):
-                self?.presentAlert(title: "File Write", message: "Did write \(object)")
-            case .failure(let error):
-                self?.presentAlert(title: "File Write Error", message: error.localizedDescription)
-            }
+        do {
+            let stored = Stored(title: text)
+            try fileProvider.write(stored, for: .fileTest)
+            presentAlert(title: "File Write", message: "Did write \(stored.title).")
+        } catch {
+            presentAlert(title: "File Write Error", message: error.localizedDescription)
         }
     }
-    
-    @IBAction func fileDeleteTapped(_ sender: Any) {
-        filePersistance.removeObject(for: fileStore) { [weak self] (result) in
-            switch result {
-            case .success(_):
-                self?.presentAlert(title: "File Delete", message: "Delete successful")
-            case .failure(let error):
-                self?.presentAlert(title: "File Delete Error", message: error.localizedDescription)
-            }
+
+    @IBAction func fileDeleteTapped() {
+        do {
+            try fileProvider.deleteValue(for: .fileTest)
+            presentAlert(title: "File Delete", message: "Delete successful.")
+        } catch {
+            presentAlert(title: "File Delete Error", message: error.localizedDescription)
         }
     }
 }
@@ -135,10 +131,10 @@ class ViewController: UIViewController {
 extension ViewController {
     func presentAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "OK", style: .default) { action in }
+
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in }
         alert.addAction(okAction)
-        
+
         present(alert, animated: true, completion: nil)
     }
 }

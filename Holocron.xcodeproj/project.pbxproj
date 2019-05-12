@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		0E96E0802061A18D0013892D /* Holocron.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E96E0772061A18D0013892D /* Holocron.framework */; };
 		0E96E0BC2061A2580013892D /* Holocron.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E96E0BA2061A2580013892D /* Holocron.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0E96E0C32061A2B60013892D /* DirectoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96E0BF2061A2B60013892D /* DirectoryTests.swift */; };
-		0E96E0C42061A2B60013892D /* FilePersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96E0C02061A2B60013892D /* FilePersistenceTests.swift */; };
-		0E96E0C52061A2B60013892D /* KeychainPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96E0C12061A2B60013892D /* KeychainPersistenceTests.swift */; };
-		0E96E0C62061A2B60013892D /* UserDefaultsPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96E0C22061A2B60013892D /* UserDefaultsPersistenceTests.swift */; };
 		0E96E0D92061A5600013892D /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E96E0DA2061A5600013892D /* KeychainAccess.framework */; };
-		0E96E0E12061A5DC0013892D /* KeychainPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96E0DD2061A5DC0013892D /* KeychainPersistence.swift */; };
-		0E96E0E22061A5DC0013892D /* FilePersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96E0DE2061A5DC0013892D /* FilePersistence.swift */; };
-		0E96E0E32061A5DC0013892D /* StorageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96E0DF2061A5DC0013892D /* StorageContainer.swift */; };
-		0E96E0E42061A5DC0013892D /* UserDefaultsPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96E0E02061A5DC0013892D /* UserDefaultsPersistence.swift */; };
 		0E96E0EC2061A61B0013892D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E96E0E72061A61A0013892D /* Images.xcassets */; };
 		0E96E0EE2061A61B0013892D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96E0E92061A61B0013892D /* ViewController.swift */; };
 		0E96E0EF2061A61B0013892D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96E0EA2061A61B0013892D /* AppDelegate.swift */; };
 		0E96E0F22061A69A0013892D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E96E0F02061A66F0013892D /* Main.storyboard */; };
 		0E96E0F32061A6A10013892D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E96E0F12061A66F0013892D /* LaunchScreen.xib */; };
-		CB9BF53C225E353300E4E6F0 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9BF53B225E353300E4E6F0 /* KeychainAccess.framework */; };
+		0E96E1032062C3BD0013892D /* StorageProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96E0FF2062C3BD0013892D /* StorageProviderTests.swift */; };
+		0E96E1052062C3BD0013892D /* FileContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96E1012062C3BD0013892D /* FileContainerTests.swift */; };
+		0E96E1082062C9020013892D /* Holocron.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E96E0772061A18D0013892D /* Holocron.framework */; };
+		0E96E1092062C9020013892D /* Holocron.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E96E0772061A18D0013892D /* Holocron.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CB42653C226508DE0062C97A /* StorageProvider+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB42653B226508DE0062C97A /* StorageProvider+Default.swift */; };
+		CB8422AE2277567C009345FF /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8422AD2277567C009345FF /* FileManager.swift */; };
+		CB8F6FFB2265314D001B9E2E /* FileSystemStorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F6FFA2265314D001B9E2E /* FileSystemStorageProvider.swift */; };
+		CB9BF53E225E4C1B00E4E6F0 /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9BF53D225E4C1B00E4E6F0 /* StorageProvider.swift */; };
+		CB9BF549225E676B00E4E6F0 /* Keychain+StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9BF548225E676B00E4E6F0 /* Keychain+StorageProvider.swift */; };
+		CB9BF54B225E678400E4E6F0 /* UserDefaults+StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9BF54A225E678400E4E6F0 /* UserDefaults+StorageProvider.swift */; };
+		CBCB75512270C34A00AF9C0F /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCB75502270C34A00AF9C0F /* Key.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +36,35 @@
 			remoteGlobalIDString = 0E96E0762061A18D0013892D;
 			remoteInfo = "Holocron-iOS";
 		};
+		0E96E10A2062C9020013892D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E96E0762061A18D0013892D;
+			remoteInfo = "Holocron-iOS";
+		};
+		CB42653F226511160062C97A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E96E0A72061A2000013892D;
+			remoteInfo = "Holocron-iOSExample";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0E96E10C2062C9020013892D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0E96E1092062C9020013892D /* Holocron.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0E96E0772061A18D0013892D /* Holocron.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Holocron.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,23 +72,24 @@
 		0E96E0A82061A2000013892D /* Holocron-iOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Holocron-iOSExample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E96E0BA2061A2580013892D /* Holocron.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Holocron.h; sourceTree = "<group>"; };
 		0E96E0BB2061A2580013892D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E96E0BF2061A2B60013892D /* DirectoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryTests.swift; sourceTree = "<group>"; };
-		0E96E0C02061A2B60013892D /* FilePersistenceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePersistenceTests.swift; sourceTree = "<group>"; };
-		0E96E0C12061A2B60013892D /* KeychainPersistenceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPersistenceTests.swift; sourceTree = "<group>"; };
-		0E96E0C22061A2B60013892D /* UserDefaultsPersistenceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsPersistenceTests.swift; sourceTree = "<group>"; };
 		0E96E0D82061A53F0013892D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E96E0DA2061A5600013892D /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E96E0DD2061A5DC0013892D /* KeychainPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPersistence.swift; sourceTree = "<group>"; };
-		0E96E0DE2061A5DC0013892D /* FilePersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePersistence.swift; sourceTree = "<group>"; };
-		0E96E0DF2061A5DC0013892D /* StorageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageContainer.swift; sourceTree = "<group>"; };
-		0E96E0E02061A5DC0013892D /* UserDefaultsPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsPersistence.swift; sourceTree = "<group>"; };
+		0E96E0DC2061A5670013892D /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E96E0E72061A61A0013892D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0E96E0E82061A61B0013892D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E96E0E92061A61B0013892D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0E96E0EA2061A61B0013892D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E96E0F02061A66F0013892D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0E96E0F12061A66F0013892D /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		CB9BF53B225E353300E4E6F0 /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E96E0FF2062C3BD0013892D /* StorageProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageProviderTests.swift; sourceTree = "<group>"; };
+		0E96E1012062C3BD0013892D /* FileContainerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileContainerTests.swift; sourceTree = "<group>"; };
+		CB42653B226508DE0062C97A /* StorageProvider+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StorageProvider+Default.swift"; sourceTree = "<group>"; };
+		CB8422AD2277567C009345FF /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		CB8F6FFA2265314D001B9E2E /* FileSystemStorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemStorageProvider.swift; sourceTree = "<group>"; };
+		CB9BF53D225E4C1B00E4E6F0 /* StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
+		CB9BF548225E676B00E4E6F0 /* Keychain+StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keychain+StorageProvider.swift"; sourceTree = "<group>"; };
+		CB9BF54A225E678400E4E6F0 /* UserDefaults+StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+StorageProvider.swift"; sourceTree = "<group>"; };
+		CBCB75502270C34A00AF9C0F /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E96E1082062C9020013892D /* Holocron.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,10 +141,13 @@
 		0E4AE2B42061A11100361032 /* Holocron */ = {
 			isa = PBXGroup;
 			children = (
-				0E96E0DE2061A5DC0013892D /* FilePersistence.swift */,
-				0E96E0DD2061A5DC0013892D /* KeychainPersistence.swift */,
-				0E96E0DF2061A5DC0013892D /* StorageContainer.swift */,
-				0E96E0E02061A5DC0013892D /* UserDefaultsPersistence.swift */,
+				CB8422AD2277567C009345FF /* FileManager.swift */,
+				CB8F6FFA2265314D001B9E2E /* FileSystemStorageProvider.swift */,
+				CBCB75502270C34A00AF9C0F /* Key.swift */,
+				CB9BF548225E676B00E4E6F0 /* Keychain+StorageProvider.swift */,
+				CB9BF53D225E4C1B00E4E6F0 /* StorageProvider.swift */,
+				CB42653B226508DE0062C97A /* StorageProvider+Default.swift */,
+				CB9BF54A225E678400E4E6F0 /* UserDefaults+StorageProvider.swift */,
 			);
 			path = Holocron;
 			sourceTree = "<group>";
@@ -172,10 +207,8 @@
 			isa = PBXGroup;
 			children = (
 				0E96E0D62061A5130013892D /* Supporting Files */,
-				0E96E0BF2061A2B60013892D /* DirectoryTests.swift */,
-				0E96E0C02061A2B60013892D /* FilePersistenceTests.swift */,
-				0E96E0C12061A2B60013892D /* KeychainPersistenceTests.swift */,
-				0E96E0C22061A2B60013892D /* UserDefaultsPersistenceTests.swift */,
+				0E96E0FF2062C3BD0013892D /* StorageProviderTests.swift */,
+				0E96E1012062C3BD0013892D /* FileContainerTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -233,6 +266,7 @@
 			);
 			dependencies = (
 				0E96E0822061A18D0013892D /* PBXTargetDependency */,
+				CB426540226511160062C97A /* PBXTargetDependency */,
 			);
 			name = "Holocron-iOSTests";
 			productName = "Holocron-iOSTests";
@@ -246,10 +280,12 @@
 				0E96E0A42061A2000013892D /* Sources */,
 				0E96E0A52061A2000013892D /* Frameworks */,
 				0E96E0A62061A2000013892D /* Resources */,
+				0E96E10C2062C9020013892D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0E96E10B2062C9020013892D /* PBXTargetDependency */,
 			);
 			name = "Holocron-iOSExample";
 			productName = "Holocron-iOSExample";
@@ -275,6 +311,7 @@
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
+						TestTargetID = 0E96E0A72061A2000013892D;
 					};
 					0E96E0A72061A2000013892D = {
 						CreatedOnToolsVersion = 9.2;
@@ -335,10 +372,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E96E0E42061A5DC0013892D /* UserDefaultsPersistence.swift in Sources */,
-				0E96E0E12061A5DC0013892D /* KeychainPersistence.swift in Sources */,
-				0E96E0E22061A5DC0013892D /* FilePersistence.swift in Sources */,
-				0E96E0E32061A5DC0013892D /* StorageContainer.swift in Sources */,
+				CB8F6FFB2265314D001B9E2E /* FileSystemStorageProvider.swift in Sources */,
+				CB42653C226508DE0062C97A /* StorageProvider+Default.swift in Sources */,
+				CB9BF53E225E4C1B00E4E6F0 /* StorageProvider.swift in Sources */,
+				CB8422AE2277567C009345FF /* FileManager.swift in Sources */,
+				CB9BF549225E676B00E4E6F0 /* Keychain+StorageProvider.swift in Sources */,
+				CB9BF54B225E678400E4E6F0 /* UserDefaults+StorageProvider.swift in Sources */,
+				CBCB75512270C34A00AF9C0F /* Key.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,10 +386,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E96E0C62061A2B60013892D /* UserDefaultsPersistenceTests.swift in Sources */,
-				0E96E0C32061A2B60013892D /* DirectoryTests.swift in Sources */,
-				0E96E0C42061A2B60013892D /* FilePersistenceTests.swift in Sources */,
-				0E96E0C52061A2B60013892D /* KeychainPersistenceTests.swift in Sources */,
+				0E96E1052062C3BD0013892D /* FileContainerTests.swift in Sources */,
+				0E96E1032062C3BD0013892D /* StorageProviderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +407,16 @@
 			isa = PBXTargetDependency;
 			target = 0E96E0762061A18D0013892D /* Holocron-iOS */;
 			targetProxy = 0E96E0812061A18D0013892D /* PBXContainerItemProxy */;
+		};
+		0E96E10B2062C9020013892D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E96E0762061A18D0013892D /* Holocron-iOS */;
+			targetProxy = 0E96E10A2062C9020013892D /* PBXContainerItemProxy */;
+		};
+		CB426540226511160062C97A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E96E0A72061A2000013892D /* Holocron-iOSExample */;
+			targetProxy = CB42653F226511160062C97A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -463,6 +511,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Holocron-iOSExample.app/Holocron-iOSExample";
 			};
 			name = Debug;
 		};
@@ -486,12 +535,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Holocron-iOSExample.app/Holocron-iOSExample";
 			};
 			name = Release;
 		};
 		0E96E0B82061A2000013892D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -518,6 +569,7 @@
 		0E96E0B92061A2000013892D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
